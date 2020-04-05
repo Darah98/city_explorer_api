@@ -43,7 +43,7 @@ function Weather(description, datetime){
 
 
 server.use('*', (req, res) => {
-    res.status(404).send('NOT FOUND');
+    res.status(500).send('Sorry, something went wrong!');
 });
 
 server.use((error, req, res) => {
