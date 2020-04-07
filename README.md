@@ -22,3 +22,42 @@ We are using JavaScrip language to script this project. We are also applying Nod
 <!-- Give credit (and a link) to other people or resources that helped you build this application. -->
 -->
 
+## Number and name of feature: 1 Data formatting
+
+Estimate of time needed to complete: 30 MINUTES
+
+Start time: 14:00
+
+Finish time: 14:30
+
+Actual time needed to complete: 30 MINUTES
+
+## Number and name of feature: 2 /LOCATIONS
+
+Estimate of time needed to complete: 1 HOUR
+
+Start time: 15:00
+
+Finish time: 16:00
+
+Actual time needed to complete: 1 HOUR
+
+## Number and name of feature: 3 /WEATHER
+
+Estimate of time needed to complete: 2 HOURS
+
+Start time: 16:00
+
+Finish time: 18:00
+
+Actual time needed to complete: 2 HOURS
+
+## Number and name of feature: 3 /TRAILS
+
+Estimate of time needed to complete: 2 HOURS
+
+Start time: 18:00
+
+Finish time: 21:00
+
+Actual time needed to complete: 3 HOURS
