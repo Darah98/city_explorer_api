@@ -15,7 +15,10 @@ server.get('/', (req, res) => {
 });
 server.get('/location', locationHandler);
 server.get('/weather', weatherHandler);
+// server.get(('/movies'), movieHandler);
 server.get('/trails', trailHandler);
+
+
 function locationHandler(req, res) {
   const city = req.query.city;
   let SQL= 'SELECT * FROM cities WHERE city_name LIKE $1';
@@ -34,7 +37,7 @@ function getLocDataFromAPI(city) {
   const url = `https://eu1.locationiq.com/v1/search.php?key=${key}&q=${city}&format=json`;
   return superagent.get(url)
   .then((geoData) => {
-    const locationData = new Location(city, geoData.body);
+    let locationData = new Location(city, geoData.body);
     let sql = 'INSERT INTO cities (city_name, formatted_query, latitude, longitude) VALUES ($1, $2, $3, $4)';
     let safeValues=[
     locationData.city_name,
@@ -52,6 +55,23 @@ function Location(city, geoData) {
   this.latitude = geoData[0].lat;
   this.longitude = geoData[0].lon;
 }
+
+function movieHandler(req, res){
+  const city= req.query.city_name;
+  getMovieDataFromAPI(city)
+  .then(movieData=>{
+    res.status(200).json(movieData);
+  })
+}
+function getMovieDataFromAPI(city){
+  let key= process.env.MOVIE_API_KEY;
+  const url= `https://api.themoviedb.org/3/movie/550?api_key=${key}`;
+  superagent.get(url)
+  .then(movieData=>{
+    let movieData= new Movie(city, movieData.body);
+  })
+}
+
 function weatherHandler(req, res) {
   const city = req.query.city_name;
   getWeatherDataFromAPI(city).then((weatherData) =>
